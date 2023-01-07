@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import FirebaseAuth
 
 enum FetchError: Error {
     case statusCode(Int)
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
         Task {
             do {
@@ -110,6 +112,7 @@ class ViewController: UIViewController {
         mapView.addAnnotations(parkCoordinates)
 
     }
+   
 }
 
 extension ViewController: MKMapViewDelegate {

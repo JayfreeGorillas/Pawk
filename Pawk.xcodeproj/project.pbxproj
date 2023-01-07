@@ -12,9 +12,6 @@
 		FE8D8BE2296221CD005CD604 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */; };
 		FE8D8BE3296221CD005CD604 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */; };
 		FE8D8BE4296221CD005CD604 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */; };
-		FE8D8BE72962240B005CD604 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = FE8D8BE62962240B005CD604 /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		FE8D8BE92962240B005CD604 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FE8D8BE82962240B005CD604 /* FirebaseAuth */; };
-		FE8D8BEB2962240B005CD604 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FE8D8BEA2962240B005CD604 /* FirebaseDatabase */; };
 		FEDAC7DB294DCD9300968173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDAC7DA294DCD9300968173 /* AppDelegate.swift */; };
 		FEDAC7DD294DCD9300968173 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDAC7DC294DCD9300968173 /* SceneDelegate.swift */; };
 		FEDAC7DF294DCD9300968173 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDAC7DE294DCD9300968173 /* ViewController.swift */; };
@@ -29,6 +26,13 @@
 		FEDAC80F294DCDC900968173 /* NYC Parks Dog Runs (1).geojson in Resources */ = {isa = PBXBuildFile; fileRef = FEDAC80D294DCDC900968173 /* NYC Parks Dog Runs (1).geojson */; };
 		FEDAC810294DCDC900968173 /* NYC Parks Dog Runs (1).geojson in Resources */ = {isa = PBXBuildFile; fileRef = FEDAC80D294DCDC900968173 /* NYC Parks Dog Runs (1).geojson */; };
 		FEDAC812294DCE5A00968173 /* DogParkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEDAC811294DCE5A00968173 /* DogParkModel.swift */; };
+		FEF987022969D1C900E4BA56 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987012969D1C900E4BA56 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		FEF987042969D1C900E4BA56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987032969D1C900E4BA56 /* FirebaseAuth */; };
+		FEF987062969D1C900E4BA56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987052969D1C900E4BA56 /* FirebaseDatabase */; };
+		FEF987082969D1C900E4BA56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987072969D1C900E4BA56 /* FirebaseFirestore */; };
+		FEF9870A2969D1CA00E4BA56 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987092969D1CA00E4BA56 /* FirebaseStorage */; };
+		FEFAC827296763D8008596B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAC826296763D8008596B1 /* LoginViewController.swift */; };
+		FEFAC82929677346008596B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAC82829677346008596B1 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +72,8 @@
 		FEDAC800294DCD9600968173 /* PawkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FEDAC80D294DCDC900968173 /* NYC Parks Dog Runs (1).geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "NYC Parks Dog Runs (1).geojson"; sourceTree = "<group>"; };
 		FEDAC811294DCE5A00968173 /* DogParkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogParkModel.swift; sourceTree = "<group>"; };
+		FEFAC826296763D8008596B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FEFAC82829677346008596B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +81,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE8D8BEB2962240B005CD604 /* FirebaseDatabase in Frameworks */,
-				FE8D8BE72962240B005CD604 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				FE8D8BE92962240B005CD604 /* FirebaseAuth in Frameworks */,
+				FEF987062969D1C900E4BA56 /* FirebaseDatabase in Frameworks */,
+				FEF987082969D1C900E4BA56 /* FirebaseFirestore in Frameworks */,
+				FEF987022969D1C900E4BA56 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				FEF9870A2969D1CA00E4BA56 /* FirebaseStorage in Frameworks */,
+				FEF987042969D1C900E4BA56 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +136,8 @@
 				FE13C1B9295A8139006F34DB /* parkPins.swift */,
 				FEDAC811294DCE5A00968173 /* DogParkModel.swift */,
 				FEDAC7E0294DCD9300968173 /* Main.storyboard */,
+				FEFAC826296763D8008596B1 /* LoginViewController.swift */,
+				FEFAC82829677346008596B1 /* User.swift */,
 				FEDAC7E6294DCD9600968173 /* Assets.xcassets */,
 				FEDAC7E8294DCD9600968173 /* LaunchScreen.storyboard */,
 				FEDAC7EB294DCD9600968173 /* Info.plist */,
@@ -172,9 +182,11 @@
 			);
 			name = Pawk;
 			packageProductDependencies = (
-				FE8D8BE62962240B005CD604 /* FirebaseAnalyticsWithoutAdIdSupport */,
-				FE8D8BE82962240B005CD604 /* FirebaseAuth */,
-				FE8D8BEA2962240B005CD604 /* FirebaseDatabase */,
+				FEF987012969D1C900E4BA56 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				FEF987032969D1C900E4BA56 /* FirebaseAuth */,
+				FEF987052969D1C900E4BA56 /* FirebaseDatabase */,
+				FEF987072969D1C900E4BA56 /* FirebaseFirestore */,
+				FEF987092969D1CA00E4BA56 /* FirebaseStorage */,
 			);
 			productName = Pawk;
 			productReference = FEDAC7D7294DCD9300968173 /* Pawk.app */;
@@ -249,7 +261,7 @@
 			);
 			mainGroup = FEDAC7CE294DCD9300968173;
 			packageReferences = (
-				FE8D8BE52962240B005CD604 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = FEDAC7D8294DCD9300968173 /* Products */;
 			projectDirPath = "";
@@ -304,6 +316,8 @@
 				FE13C1BA295A8139006F34DB /* parkPins.swift in Sources */,
 				FE13C1BC295A8722006F34DB /* ParkMarkerView.swift in Sources */,
 				FEDAC7DF294DCD9300968173 /* ViewController.swift in Sources */,
+				FEFAC827296763D8008596B1 /* LoginViewController.swift in Sources */,
+				FEFAC82929677346008596B1 /* User.swift in Sources */,
 				FEDAC7DB294DCD9300968173 /* AppDelegate.swift in Sources */,
 				FEDAC7DD294DCD9300968173 /* SceneDelegate.swift in Sources */,
 				FEDAC812294DCE5A00968173 /* DogParkModel.swift in Sources */,
@@ -650,7 +664,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		FE8D8BE52962240B005CD604 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -661,20 +675,30 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FE8D8BE62962240B005CD604 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+		FEF987012969D1C900E4BA56 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FE8D8BE52962240B005CD604 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsWithoutAdIdSupport;
 		};
-		FE8D8BE82962240B005CD604 /* FirebaseAuth */ = {
+		FEF987032969D1C900E4BA56 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FE8D8BE52962240B005CD604 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
 		};
-		FE8D8BEA2962240B005CD604 /* FirebaseDatabase */ = {
+		FEF987052969D1C900E4BA56 /* FirebaseDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FE8D8BE52962240B005CD604 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		FEF987072969D1C900E4BA56 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FEF987092969D1CA00E4BA56 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FEF987002969D1C900E4BA56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 

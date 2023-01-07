@@ -30,6 +30,7 @@ class Park: NSObject, MKAnnotation {
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = title
+        
         return mapItem
     }
     
