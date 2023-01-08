@@ -31,6 +31,8 @@
 		FEF987062969D1C900E4BA56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987052969D1C900E4BA56 /* FirebaseDatabase */; };
 		FEF987082969D1C900E4BA56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987072969D1C900E4BA56 /* FirebaseFirestore */; };
 		FEF9870A2969D1CA00E4BA56 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987092969D1CA00E4BA56 /* FirebaseStorage */; };
+		FEF9870F296AFF5600E4BA56 /* UserRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */; };
+		FEF98711296B101800E4BA56 /* DogFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF98710296B101800E4BA56 /* DogFormViewController.swift */; };
 		FEFAC827296763D8008596B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAC826296763D8008596B1 /* LoginViewController.swift */; };
 		FEFAC82929677346008596B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAC82829677346008596B1 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,8 @@
 		FEDAC800294DCD9600968173 /* PawkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawkUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FEDAC80D294DCDC900968173 /* NYC Parks Dog Runs (1).geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "NYC Parks Dog Runs (1).geojson"; sourceTree = "<group>"; };
 		FEDAC811294DCE5A00968173 /* DogParkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogParkModel.swift; sourceTree = "<group>"; };
+		FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewController.swift; sourceTree = "<group>"; };
+		FEF98710296B101800E4BA56 /* DogFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogFormViewController.swift; sourceTree = "<group>"; };
 		FEFAC826296763D8008596B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FEFAC82829677346008596B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +113,9 @@
 		FEDAC7CE294DCD9300968173 = {
 			isa = PBXGroup;
 			children = (
+				FEF9870D2969E68500E4BA56 /* Model */,
+				FEF9870C2969E67700E4BA56 /* View */,
+				FEF9870B2969E66200E4BA56 /* Controller */,
 				FEDAC7D9294DCD9300968173 /* Pawk */,
 				FEDAC7F3294DCD9600968173 /* PawkTests */,
 				FEDAC7FD294DCD9600968173 /* PawkUITests */,
@@ -131,13 +138,6 @@
 			children = (
 				FEDAC7DA294DCD9300968173 /* AppDelegate.swift */,
 				FEDAC7DC294DCD9300968173 /* SceneDelegate.swift */,
-				FEDAC7DE294DCD9300968173 /* ViewController.swift */,
-				FE13C1BB295A8722006F34DB /* ParkMarkerView.swift */,
-				FE13C1B9295A8139006F34DB /* parkPins.swift */,
-				FEDAC811294DCE5A00968173 /* DogParkModel.swift */,
-				FEDAC7E0294DCD9300968173 /* Main.storyboard */,
-				FEFAC826296763D8008596B1 /* LoginViewController.swift */,
-				FEFAC82829677346008596B1 /* User.swift */,
 				FEDAC7E6294DCD9600968173 /* Assets.xcassets */,
 				FEDAC7E8294DCD9600968173 /* LaunchScreen.storyboard */,
 				FEDAC7EB294DCD9600968173 /* Info.plist */,
@@ -163,6 +163,36 @@
 				FEDAC80D294DCDC900968173 /* NYC Parks Dog Runs (1).geojson */,
 			);
 			path = PawkUITests;
+			sourceTree = "<group>";
+		};
+		FEF9870B2969E66200E4BA56 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FEDAC7DE294DCD9300968173 /* ViewController.swift */,
+				FEFAC826296763D8008596B1 /* LoginViewController.swift */,
+				FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */,
+				FEF98710296B101800E4BA56 /* DogFormViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FEF9870C2969E67700E4BA56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FEDAC7E0294DCD9300968173 /* Main.storyboard */,
+				FE13C1BB295A8722006F34DB /* ParkMarkerView.swift */,
+				FE13C1B9295A8139006F34DB /* parkPins.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FEF9870D2969E68500E4BA56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FEDAC811294DCE5A00968173 /* DogParkModel.swift */,
+				FEFAC82829677346008596B1 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF9870F296AFF5600E4BA56 /* UserRegistrationViewController.swift in Sources */,
 				FEDAC7E5294DCD9300968173 /* Pawk.xcdatamodeld in Sources */,
 				FE13C1BA295A8139006F34DB /* parkPins.swift in Sources */,
 				FE13C1BC295A8722006F34DB /* ParkMarkerView.swift in Sources */,
@@ -320,6 +351,7 @@
 				FEFAC82929677346008596B1 /* User.swift in Sources */,
 				FEDAC7DB294DCD9300968173 /* AppDelegate.swift in Sources */,
 				FEDAC7DD294DCD9300968173 /* SceneDelegate.swift in Sources */,
+				FEF98711296B101800E4BA56 /* DogFormViewController.swift in Sources */,
 				FEDAC812294DCE5A00968173 /* DogParkModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,10 +17,7 @@ class LoginViewController: UIViewController {
     
     
     var testDog = Dog(dogGender: "F", dogName: "Mochi", dogAge: 1, dogBreed: "Pug", weight: 10, dateOfBirth: nil)
-    
 
-    
-    
     @IBOutlet var usernameLabel: UITextField!
     
     @IBOutlet var passwordLabel: UITextField!
@@ -52,17 +49,17 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
-        guard let email = usernameLabel.text else { return } // make sure its not empty
-        guard let password = passwordLabel.text else { return } // count more than 6
-        
-        guard !email.isEmpty else { return }
-        guard password.count > 6 else { return } // if less than 6 show alert
-        
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            print(email, password)
-          }
-        self.ref.child("users").child("emailofsomething").setValue(["username": email])
-        //self.ref.child("users").child(user.uid).setValue(["username": username])
+//        guard let email = usernameLabel.text else { return } // make sure its not empty
+//        guard let password = passwordLabel.text else { return } // count more than 6
+//
+//        guard !email.isEmpty else { return }
+//        guard password.count > 6 else { return } // if less than 6 show alert
+//
+//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+//            print(email, password)
+//          }
+//        self.ref.child("users").child("emailofsomething").setValue(["username": email])
+//        //self.ref.child("users").child(user.uid).setValue(["username": username])
     }
     @IBAction func skipLoginButton(_ sender: Any) {
         if let mapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
@@ -78,7 +75,8 @@ class LoginViewController: UIViewController {
     }
     
     func createUser(dogs: [Dog]) -> User {
-        let user = User(username: "Josfry", icon: nil, dog: dogs)
+//        let user = User(username: "Josfry", icon: nil, dog: dogs)
+        let user = User(username: "Jori", email: "jori@jori.com", icon: nil, dog: dogs)
         
         return user
     }
