@@ -13,6 +13,15 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
         1
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let email = emailTextField.text else { return }
+        guard let username = usernameTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        if segue.identifier == "goToDogForm" {
+            let vc = segue.destination as? DogFormViewController
+            vc?.username = usernameTextFie
+        }
+    }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         data.count
     }
@@ -42,6 +51,7 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
         for num in 1...50 {
             pickerData.append(num)
         }
+      
         
 
     // numberOfComponents(in: <#T##UIPickerView#>)
@@ -51,4 +61,7 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
     }
     
    
+}
+extension ViewController {
+ 
 }
