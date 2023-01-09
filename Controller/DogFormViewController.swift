@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseFirestore
 
 class DogFormViewController: UIViewController {
     var username: String = ""
@@ -24,7 +27,9 @@ class DogFormViewController: UIViewController {
     func printStuffAfterStuff() {
         print(username,email,password,numOfUsersDogs)
     }
-
+//TODO:  Come up with a method to create a user out of this information as well as their dogs information to be uploaded onto firebase
+    
+// MARK: Method to add a selected photo UIIMAGEPICKERSOMETHING
 /*
      guard let email = usernameLabel.text else { return }
      guard let password = passwordLabel.text else { return }
