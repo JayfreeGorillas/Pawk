@@ -18,7 +18,7 @@ class DogFormViewController: UIViewController {
 // MARK: connect dog entries
     @IBOutlet var dogGender: UISegmentedControl!
     
-    @IBOutlet var dogBreedSelectionButton: UIButton!
+    @IBOutlet var dogBreedSelectionButton: UIButton!// TODO: change to action
     @IBOutlet var dogWeight: UITextField!
     @IBOutlet var dogAge: UITextField!
     @IBOutlet var dogNameTextField: UITextField!
