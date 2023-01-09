@@ -30,6 +30,8 @@ class DogFormViewController: UIViewController {
 //TODO:  Come up with a method to create a user out of this information as well as their dogs information to be uploaded onto firebase
     
 // MARK: Method to add a selected photo UIIMAGEPICKERSOMETHING
+    
+// MARK:  Present dog breed list modally in a table view
 /*
      guard let email = usernameLabel.text else { return }
      guard let password = passwordLabel.text else { return }
