@@ -15,12 +15,23 @@ class DogFormViewController: UIViewController {
     var email: String = ""
     var password: String = ""
     var numOfUsersDogs: Int = 0
-
+// MARK: connect dog entries
+    @IBOutlet var dogGender: UISegmentedControl!
+    
+    @IBOutlet var dogBreedSelectionButton: UIButton!
+    @IBOutlet var dogWeight: UITextField!
+    @IBOutlet var dogAge: UITextField!
+    @IBOutlet var dogNameTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(username,email,password,numOfUsersDogs)
         printStuffAfterStuff()
 
+    }
+    @IBAction func registerAccountAndDogs(_ sender: Any) {
+        
     }
     
     

@@ -33,6 +33,7 @@
 		FEF9870A2969D1CA00E4BA56 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FEF987092969D1CA00E4BA56 /* FirebaseStorage */; };
 		FEF9870F296AFF5600E4BA56 /* UserRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */; };
 		FEF98711296B101800E4BA56 /* DogFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF98710296B101800E4BA56 /* DogFormViewController.swift */; };
+		FEF98713296CAF0300E4BA56 /* DogBreedChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF98712296CAF0300E4BA56 /* DogBreedChoiceViewController.swift */; };
 		FEFAC827296763D8008596B1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAC826296763D8008596B1 /* LoginViewController.swift */; };
 		FEFAC82929677346008596B1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFAC82829677346008596B1 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		FEDAC811294DCE5A00968173 /* DogParkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogParkModel.swift; sourceTree = "<group>"; };
 		FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegistrationViewController.swift; sourceTree = "<group>"; };
 		FEF98710296B101800E4BA56 /* DogFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogFormViewController.swift; sourceTree = "<group>"; };
+		FEF98712296CAF0300E4BA56 /* DogBreedChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedChoiceViewController.swift; sourceTree = "<group>"; };
 		FEFAC826296763D8008596B1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FEFAC82829677346008596B1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 				FEFAC826296763D8008596B1 /* LoginViewController.swift */,
 				FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */,
 				FEF98710296B101800E4BA56 /* DogFormViewController.swift */,
+				FEF98712296CAF0300E4BA56 /* DogBreedChoiceViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				FEDAC7DD294DCD9300968173 /* SceneDelegate.swift in Sources */,
 				FEF98711296B101800E4BA56 /* DogFormViewController.swift in Sources */,
 				FEDAC812294DCE5A00968173 /* DogParkModel.swift in Sources */,
+				FEF98713296CAF0300E4BA56 /* DogBreedChoiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
