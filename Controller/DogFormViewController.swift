@@ -12,14 +12,20 @@ class DogFormViewController: UIViewController {
     var email: String = ""
     var password: String = ""
     var numOfUsersDogs: Int = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(username,email,password,numOfUsersDogs)
+        printStuffAfterStuff()
 
     }
     
+    
+    func printStuffAfterStuff() {
+        print(username,email,password,numOfUsersDogs)
+    }
 
-    /*
+/*
      guard let email = usernameLabel.text else { return }
      guard let password = passwordLabel.text else { return }
      

@@ -49,17 +49,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
-//        guard let email = usernameLabel.text else { return } // make sure its not empty
-//        guard let password = passwordLabel.text else { return } // count more than 6
-//
-//        guard !email.isEmpty else { return }
-//        guard password.count > 6 else { return } // if less than 6 show alert
-//
-//        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//            print(email, password)
-//          }
-//        self.ref.child("users").child("emailofsomething").setValue(["username": email])
-//        //self.ref.child("users").child(user.uid).setValue(["username": username])
+
     }
     @IBAction func skipLoginButton(_ sender: Any) {
         if let mapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
