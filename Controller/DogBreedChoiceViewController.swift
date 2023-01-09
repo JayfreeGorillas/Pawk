@@ -37,7 +37,7 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
         return cell
         
     }
-    
+    //TODO: Finish selection of dog breed
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
