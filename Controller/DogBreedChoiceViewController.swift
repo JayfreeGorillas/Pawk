@@ -9,6 +9,7 @@ import UIKit
 
 class DogBreedChoiceViewController: UIViewController {
   
+    var list = DogBreeds()
     
 
     @IBOutlet var tableView: UITableView!
@@ -16,6 +17,8 @@ class DogBreedChoiceViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        print(list.dogBreedList)
+    
 
         // Do any additional setup after loading the view.
     }
@@ -41,4 +44,36 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
+}
+
+extension DogBreedChoiceViewController {
+    public class DogBreeds {
+        let dogBreedListFile = "DogBreedList.txt"
+        var dogBreedList = [String]()
+        
+        public init () {
+            dogBreedList = FileParser.getLines(from: dogBreedListFile)
+        }
+    }
+    struct FileParser {
+
+        
+        
+        static func getLines(from fileName: String) -> [String] {
+            let mainPath = #file
+            var lastPathComponent = mainPath.components(separatedBy: "/").last ?? ""
+            let filePath = mainPath.replacingOccurrences(of: lastPathComponent, with: fileName)
+            let contents = (try? String(contentsOfFile: filePath, encoding: .utf8)) ?? ""
+            var names = contents.components(separatedBy: .newlines)
+            names.removeAll(where: { $0.isEmpty })
+            
+            return names
+        }
+        
+            //var dogBreedList = FileParser.getLines(from: dogBreedListFile)
+        
+    }
+    
+    
+    
 }

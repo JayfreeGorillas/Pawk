@@ -7,7 +7,6 @@
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -203,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMF-t8-QbV">
-                                <rect key="frame" x="0.0" y="555" width="393" height="162"/>
+                                <rect key="frame" x="-1" y="555" width="393" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnB-Ev-cjB">
@@ -290,7 +289,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXf-Mg-xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2678.6259541984732" y="-1537.323943661972"/>
+            <point key="canvasLocation" x="2973" y="-838"/>
         </scene>
         <!--Dog Form View Controller-->
         <scene sceneID="Sbm-bc-RqU">
@@ -346,20 +345,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1N3-p1-Y7e">
-                                <rect key="frame" x="182" y="443" width="134" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="2bK-4C-jhk">
-                                    <children>
-                                        <command title="Item 1" id="QDR-6T-LrJ"/>
-                                        <command title="Item 2" id="Xqx-2y-GSV"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="EpD-O1-BNI" kind="presentation" id="pbD-Jf-w0f"/>
-                                </connections>
-                            </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dto-9Y-kbs">
                                 <rect key="frame" x="187" y="513" width="127" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -396,6 +381,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-1v-Wqw">
+                                <rect key="frame" x="193" y="441" width="121" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <segue destination="EpD-O1-BNI" kind="presentation" id="CJW-Vb-aVp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7HT-0d-msR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -403,7 +397,6 @@
                     <navigationItem key="navigationItem" id="fZr-8g-TOP"/>
                     <connections>
                         <outlet property="dogAge" destination="VbF-A6-cwd" id="C7N-Xz-5tl"/>
-                        <outlet property="dogBreedSelectionButton" destination="1N3-p1-Y7e" id="LLL-Am-aSw"/>
                         <outlet property="dogGender" destination="dto-9Y-kbs" id="F9l-3c-CaA"/>
                         <outlet property="dogNameTextField" destination="D8G-jd-WnS" id="sZn-0c-599"/>
                         <outlet property="dogWeight" destination="Ok1-OI-lpV" id="Hyv-7b-C37"/>

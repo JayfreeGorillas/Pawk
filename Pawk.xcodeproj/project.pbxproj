@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FE13C1BA295A8139006F34DB /* parkPins.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13C1B9295A8139006F34DB /* parkPins.swift */; };
 		FE13C1BC295A8722006F34DB /* ParkMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13C1BB295A8722006F34DB /* ParkMarkerView.swift */; };
+		FE60557B296DE2D9006B08A0 /* DogBreedList.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE60557A296DE2D9006B08A0 /* DogBreedList.txt */; };
 		FE8D8BE2296221CD005CD604 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */; };
 		FE8D8BE3296221CD005CD604 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */; };
 		FE8D8BE4296221CD005CD604 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */; };
@@ -58,6 +59,7 @@
 /* Begin PBXFileReference section */
 		FE13C1B9295A8139006F34DB /* parkPins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkPins.swift; sourceTree = "<group>"; };
 		FE13C1BB295A8722006F34DB /* ParkMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMarkerView.swift; sourceTree = "<group>"; };
+		FE60557A296DE2D9006B08A0 /* DogBreedList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DogBreedList.txt; sourceTree = "<group>"; };
 		FE8D8BE1296221CD005CD604 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FEDAC7D7294DCD9300968173 /* Pawk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pawk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDAC7DA294DCD9300968173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */,
 				FEF98710296B101800E4BA56 /* DogFormViewController.swift */,
 				FEF98712296CAF0300E4BA56 /* DogBreedChoiceViewController.swift */,
+				FE60557A296DE2D9006B08A0 /* DogBreedList.txt */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE60557B296DE2D9006B08A0 /* DogBreedList.txt in Resources */,
 				FEDAC80E294DCDC900968173 /* NYC Parks Dog Runs (1).geojson in Resources */,
 				FEDAC7EA294DCD9600968173 /* LaunchScreen.storyboard in Resources */,
 				FE8D8BE2296221CD005CD604 /* GoogleService-Info.plist in Resources */,
