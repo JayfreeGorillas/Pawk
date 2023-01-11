@@ -7,35 +7,70 @@
 
 import UIKit
 
-class DogBreedChoiceViewController: UIViewController {
+class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
   
     var list = DogBreeds()
+    var searchBar: UISearchController!
+    var searchResults = [String]()
+   
+   // @IBOutlet var searchTextField: UITextField!
     
-
+    @IBOutlet var searchBarField: UISearchBar!
+    
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar = UISearchController(searchResultsController: nil)
+        tableView.tableHeaderView = searchBar.searchBar
+        searchBar.searchResultsUpdater = self
+        searchBar.obscuresBackgroundDuringPresentation = false
+        searchBar.hidesNavigationBarDuringPresentation = false
+        searchBar.searchBar.tintColor = .systemOrange
         tableView.dataSource = self
         tableView.delegate = self
         print(list.dogBreedList)
     
-
-        // Do any additional setup after loading the view.
     }
     
     
 }
 
 
+
 extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        //let list = list.dogBreedList
+        
+        if searchBar.isActive {
+            return searchResults.count
+        } else {
+            return list.dogBreedList.count
+        }
+        
+    }
+    
+    func filterContentForSearchText(searchText: String) {
+        searchResults = list.dogBreedList.filter({ breed -> Bool in
+            guard searchText != "" else { return }
+            let breedMatch = breed.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+            return breedMatch != nil
+        })
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        if let searchText = searchController.searchBar.text {
+            filterContentForSearchText(searchText: searchText)
+            tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "dogBreed")
-        cell.textLabel?.text = "someDogBreedHere"
+        cell.textLabel?.text = "\(list.dogBreedList[indexPath.row])"
         
+        let breed = (searchBar.isActive) ? searchResults[(indexPath as NSIndexPath).row] : list.dogBreedList[(indexPath as NSIndexPath).row]
         
         return cell
         
@@ -47,6 +82,8 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
 }
 
 extension DogBreedChoiceViewController {
+    
+    
     public class DogBreeds {
         let dogBreedListFile = "DogBreedList.txt"
         var dogBreedList = [String]()
@@ -67,13 +104,20 @@ extension DogBreedChoiceViewController {
             var names = contents.components(separatedBy: .newlines)
             names.removeAll(where: { $0.isEmpty })
             
-            return names
+            let filteredNames = names.map { breed in
+                if breed.contains("[") {
+                    if let badIndex = (breed.range(of: "[")?.lowerBound) {
+                        let dogBreedName = String(breed.prefix(upTo: badIndex))
+                        return dogBreedName
+                    }
+                }
+                return breed
+            }
+            print(names)
+            print(filteredNames)
+            return filteredNames
         }
-        
-            //var dogBreedList = FileParser.getLines(from: dogBreedListFile)
-        
     }
-    
-    
-    
 }
+
+
