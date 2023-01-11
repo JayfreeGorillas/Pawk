@@ -155,7 +155,6 @@ Croatian Sheepdog[99]
 Curly-Coated Retriever[107]
 Cursinu[67]
 Czechoslovakian Wolfdog[120]
-D–K
 Dachshund[121]
 Dalmatian[122]
 Dandie Dinmont Terrier[123]
@@ -212,6 +211,7 @@ German Spitz[157]
 German Wirehaired Pointer[154]
 Giant Schnauzer[158]
 Glen of Imaal Terrier[159]
+Golden Doodle
 Golden Doodle
 Golden Retriever[160]
 Gończy Polski[161]
@@ -293,7 +293,6 @@ Kuchi[199]
 Kunming dog
 Kurdish Mastiff
 Kuvasz[200]
-L–R
 Labrador Retriever[201]
 Lagotto Romagnolo[202]
 Lakeland Terrier[70]
@@ -413,7 +412,6 @@ Russian Spaniel
 Russian Toy[213][248]
 Russo-European Laika[134]
 Ryukyu Inu
-S–Z
 Saarloos Wolfdog[120]
 Sabueso Español[249]
 Saint Bernard[203]
