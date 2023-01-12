@@ -241,14 +241,14 @@
             <objects>
                 <viewController id="EpD-O1-BNI" customClass="DogBreedChoiceViewController" customModule="Pawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="syV-rx-6u0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4bW-LR-q49">
-                                <rect key="frame" x="0.0" y="89" width="393" height="763"/>
+                                <rect key="frame" x="0.0" y="61" width="393" height="722"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="763" id="nDC-wh-njG"/>
+                                    <constraint firstAttribute="height" constant="722" id="nDC-wh-njG"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dogBreed" textLabel="eeQ-1I-NX5" style="IBUITableViewCellStyleDefault" id="jHU-QW-2fL">
@@ -274,6 +274,12 @@
                                     <outlet property="delegate" destination="EpD-O1-BNI" id="AKZ-LP-c1r"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MwF-cX-Uzb">
+                                <rect key="frame" x="294" y="16" width="65" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MZw-xY-4QG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -290,7 +296,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXf-Mg-xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3265" y="-1049"/>
+            <point key="canvasLocation" x="3264.8854961832058" y="-1049.2957746478874"/>
         </scene>
         <!--Dog Form View Controller-->
         <scene sceneID="Sbm-bc-RqU">
@@ -388,7 +394,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                 <connections>
-                                    <segue destination="EpD-O1-BNI" kind="show" id="CJW-Vb-aVp"/>
+                                    <segue destination="EpD-O1-BNI" kind="presentation" id="CJW-Vb-aVp"/>
                                 </connections>
                             </button>
                         </subviews>

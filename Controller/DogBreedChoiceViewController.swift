@@ -16,7 +16,7 @@ class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, U
     var dogBreedSelection = ""
    
    // @IBOutlet var searchTextField: UITextField!
-    // MARK: ADD A DONE BUTTON TO PASSBACK SELECTION
+    // TODO: ADD A DONE BUTTON TO PASSBACK SELECTION
     @IBOutlet var searchBarField: UISearchBar!
     
     @IBOutlet var tableView: UITableView!
@@ -64,8 +64,8 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
         
         let myNewResuilts = setOfDogs.filter { breed in
             if breed.hasPrefix(searchText) {
-                print(breed)
-                print(searchText)
+               //print(breed)
+               //print(searchText)
                 return true
             }
             return false
@@ -102,8 +102,7 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//       let selectedBreed = list.dogBreedList[indexPath.row]
- 
+
         guard let textFieldText = searchBar.searchBar.text else { return }
        
         if searchBar.isActive && textFieldText != "" {
@@ -116,13 +115,9 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
             print(selectedBreed)
         }
 
-        
         tableView.reloadData()
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        
-
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
