@@ -15,6 +15,7 @@ class DogFormViewController: UIViewController {
     var email: String = ""
     var password: String = ""
     var numOfUsersDogs: Int = 0
+    var dogBreed: String = ""
 // MARK: connect dog entries
     @IBOutlet var dogGender: UISegmentedControl!
     
@@ -41,17 +42,17 @@ class DogFormViewController: UIViewController {
     func printStuffAfterStuff() {
         print(username,email,password,numOfUsersDogs)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(dogBreed)
+    }
 //TODO:  Come up with a method to create a user out of this information as well as their dogs information to be uploaded onto firebase
     
 // MARK: Method to add a selected photo UIIMAGEPICKERSOMETHING
     
 // MARK:  Present dog breed list modally in a table view
 /*
-     guard let email = usernameLabel.text else { return }
-     guard let password = passwordLabel.text else { return }
-     
-     guard !email.isEmpty else { return }
-     guard password.count > 6 else { return }
+
      
      Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
        guard let strongSelf = self else { return }

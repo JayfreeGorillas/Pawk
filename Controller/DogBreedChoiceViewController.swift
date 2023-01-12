@@ -12,9 +12,11 @@ class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, U
     var list = DogBreeds()
     var searchBar: UISearchController!
     var searchResults = [String]()
+    var selectedIndex = 0
+    var dogBreedSelection = ""
    
    // @IBOutlet var searchTextField: UITextField!
-    
+    // MARK: ADD A DONE BUTTON TO PASSBACK SELECTION
     @IBOutlet var searchBarField: UISearchBar!
     
     @IBOutlet var tableView: UITableView!
@@ -32,11 +34,14 @@ class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, U
         print(list.dogBreedList)
     
     }
-    
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! DogFormViewController
+        destinationVC.dogBreed = dogBreedSelection
+    }
 }
-
-
 
 extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,7 +57,7 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
     
     func filterContentForSearchText(searchText: String) {
         let inputTextLowered = searchText.lowercased()
-        var count = 0
+       // var count = 0
         guard searchText != "" else { return }
         var listOfDogs = list.dogBreedList
         var setOfDogs = Set(listOfDogs)
@@ -68,28 +73,6 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
         
         print(myNewResuilts)
         searchResults = Array(myNewResuilts)
-//        searchResults = list.dogBreedList.filter({ breed in
-//
-//            let lowerCaseBreed = breed.lowercased()
-//            let preFixMatch = lowerCaseBreed.hasPrefix(searchText)
-//            if preFixMatch {
-//                count += 1
-//               return true
-//            }
-//            count += 1
-//            return false
-//        })
-//        searchResults = list.dogBreedList.filter({ (breed) -> Bool in
-//            //guard searchText != "" else { return }
-//           // let breedMatch = breed.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
-//
-//            let lowerBreed = breed.lowercased()
-//
-//            let prefixMatch = lowerBreed.hasPrefix(inputTextLowered)
-//
-//            return prefixMatch
-//        })
-        print(count)
         print(searchResults)
     }
     
@@ -112,13 +95,38 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
         }
         
         let breed = (searchBar.isActive) ? searchResults[(indexPath as NSIndexPath).row] : list.dogBreedList[(indexPath as NSIndexPath).row]
+        cell.accessoryType = .none
         
         return cell
         
     }
-    //TODO: Finish selection of dog breed
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//       let selectedBreed = list.dogBreedList[indexPath.row]
+ 
+        guard let textFieldText = searchBar.searchBar.text else { return }
+       
+        if searchBar.isActive && textFieldText != "" {
+            let selectedBreed = searchResults[indexPath.row]
+            dogBreedSelection = selectedBreed
+            print(selectedBreed)
+        } else {
+            let selectedBreed = list.dogBreedList[indexPath.row]
+            dogBreedSelection = selectedBreed
+            print(selectedBreed)
+        }
+
         
+        tableView.reloadData()
+        tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.accessoryType = .none
     }
 }
 
@@ -159,6 +167,10 @@ extension DogBreedChoiceViewController {
             return filteredNames
         }
     }
+}
+
+extension DogBreedChoiceViewController {
+    
 }
 
 
