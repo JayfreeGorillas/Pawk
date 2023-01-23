@@ -31,20 +31,23 @@ class LoginViewController: UIViewController {
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
+            print(authResult)
+            guard authResult != nil else {
+                let alertController = UIAlertController(title:"Something Went Wrong" , message: error?.localizedDescription, preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(doneAction)
+                self!.present(alertController, animated: true)
+                return
+            }
+            if let dogMapVC = self?.storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
+                self?.navigationController?.pushViewController(dogMapVC, animated: true)
+            }
             //print(email, password)
+            
             print(authResult?.user.email)
         }
-        let testUser = createUser(dogs: testList)
-        let nsarray = NSArray(array: testUser.dog)
-        //self.ref.child("users").child("emailofsomething").setValue(["username": email])
-        self.ref.child("users").child(testUser.username).setValue([
-            "dogName": testUser.dog[0].dogName,
-            "dogAge": testUser.dog[0].dogAge,
-            "dogGender": testUser.dog[0].dogGender,
-            "dogBreed": testUser.dog[0].dogBreed,
-            "dogWeight": testUser.dog[0].weight
-        ]
-        )
+    
+        
 
     }
     
@@ -52,9 +55,11 @@ class LoginViewController: UIViewController {
 
     }
     @IBAction func skipLoginButton(_ sender: Any) {
-        if let mapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
-            self.navigationController?.pushViewController(mapVC, animated: true)
-        }
+        
+        performSegue(withIdentifier: "skipToMap", sender: sender)
+//        if let mapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
+//            self.navigationController?.pushViewController(mapVC, animated: true)
+//        }
            }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,4 +77,15 @@ class LoginViewController: UIViewController {
     }
 }
 
+extension LoginViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.setNeedsLayout()
 
+    }
+}
+
+extension LoginViewController {
+    override func viewDidAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+}

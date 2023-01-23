@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         for property in dogParkList {
            //print(property.coordinates().first)
             guard let firstCoordinate = property.coordinates().first else  { return }
-            print(firstCoordinate.latitude, firstCoordinate.longitude)
+           // print(firstCoordinate.latitude, firstCoordinate.longitude)
             
             let park = Park(title: property.name, borough: property.borough, coordinate: firstCoordinate)
             parkCoordinates.append(park)
@@ -107,12 +107,21 @@ class ViewController: UIViewController {
         
         
 // here I am able to access my properties
-        print(parkCoordinates)
+        //print(parkCoordinates)
 //
         mapView.addAnnotations(parkCoordinates)
 
     }
    
+}
+
+extension ViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        tabBarController?.tabBar.isHidden = false
+        
+    }
 }
 
 extension ViewController: MKMapViewDelegate {

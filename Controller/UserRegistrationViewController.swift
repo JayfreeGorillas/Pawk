@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseFirestore
+
 
 class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var data = [Int]()
@@ -13,23 +17,41 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // registers the users account on firebase while catching any entry errors/mistakes and passing to ->  dogFormVC
+    @IBAction func registerAccount(_ sender: Any) {
+        //create a user
+        //handle errors in textFields/selections
         guard let email = emailTextField.text else { return }
         guard let username = usernameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        //let picker = pickerView(numberOfDogs, didSelectRow: , inComponent: <#T##Int#>)
         
-        if segue.identifier == "goToDogForm" {
-            let vc = segue.destination as? DogFormViewController
-            vc?.username = username
-            vc?.email = email
-            vc?.password = password
-            vc?.numOfUsersDogs = numOfDogs
+        let user = User(username: username, email: email, icon: nil, dog: [])
+        
+        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            print(authResult, error?.localizedDescription)
+                   
             
-           // vc?.numOfUsersDogs =
+         
+            
+            guard authResult != nil else {
+                let alertController = UIAlertController(title:"Something Went Wrong" , message: error?.localizedDescription, preferredStyle: .alert)
+                let doneAction = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(doneAction)
+                self.present(alertController, animated: true)
+                return
+            }
+            if let dogFormVC = self.storyboard?.instantiateViewController(withIdentifier: "dogFormSB") as? DogFormViewController {
+                dogFormVC.email = email
+                dogFormVC.username = username
+                dogFormVC.password = password
+                self.navigationController?.pushViewController(dogFormVC, animated: true)
+            }
+           
+
         }
+       
     }
+
     
     func passData() {
 //        guard let email = emailTextField.text else { return }
@@ -89,6 +111,8 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
     
    
 }
-extension ViewController {
- 
+extension UserRegistrationViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
 }

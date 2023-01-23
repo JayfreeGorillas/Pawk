@@ -1,24 +1,43 @@
-//
-//  DogBreedChoiceViewController.swift
-//  Pawk
-//
-//  Created by Josfry Barillas on 1/9/23.
-//
-
+protocol ModalViewControllerDelegate {
+    func passValue(value: String)
+}
 import UIKit
 
 class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, UISearchBarDelegate {
+    
   
+    var delegate: ModalViewControllerDelegate?
     var list = DogBreeds()
     var searchBar: UISearchController!
     var searchResults = [String]()
     var selectedIndex = 0
     var dogBreedSelection = ""
+    var selectionMade = false
    
    // @IBOutlet var searchTextField: UITextField!
     // TODO: ADD A DONE BUTTON TO PASSBACK SELECTION
     @IBOutlet var searchBarField: UISearchBar!
     
+    @IBAction func confirmSelectionandDismiss(_ sender: Any) {
+        guard selectionMade else { return }
+        var selection = dogBreedSelection
+        
+        self.delegate?.passValue(value: selection)
+        self.dismiss(animated: true)
+//        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "dogFormSB") as? DogFormViewController {
+//            destinationVC.dogBreed = selection
+//            
+//            dismiss(animated: true)
+//        }
+        /*
+         if let weaponDetailVC = storyboard?.instantiateViewController(withIdentifier: "weaponDetailVC") as? WeaponDetailVC {
+             weaponDetailVC.weaponData = weaponList[indexPath.row].skins
+             weaponDetailVC.headerTitle = weaponList[indexPath.row].displayName
+             self.navigationController?.pushViewController(weaponDetailVC, animated: true)
+         }
+
+         */
+    }
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +54,7 @@ class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, U
     
     }
     override func viewWillDisappear(_ animated: Bool) {
-        
+      //  self.delegate?.passValue(value: "value")
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! DogFormViewController
@@ -115,6 +134,7 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
             print(selectedBreed)
         }
 
+        selectionMade = true
         tableView.reloadData()
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: true)
@@ -127,6 +147,7 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
 
 extension DogBreedChoiceViewController {
     
+   
     
     public class DogBreeds {
         let dogBreedListFile = "DogBreedList.txt"

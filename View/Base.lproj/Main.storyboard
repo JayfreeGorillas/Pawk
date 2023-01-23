@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ANOTHER ITEM-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="mapVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Pawk" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEw-0X-zh4">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -27,19 +27,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cEw-0X-zh4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1s5-WN-fyJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cEw-0X-zh4" secondAttribute="bottom" constant="-34" id="U97-Fa-Z0M"/>
                             <constraint firstItem="cEw-0X-zh4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-59" id="epT-JC-20p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cEw-0X-zh4" secondAttribute="bottom" constant="236" id="rtv-vR-OF8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cEw-0X-zh4" secondAttribute="trailing" id="uBN-I1-qSN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MJ5-vD-DNu"/>
+                    <tabBarItem key="tabBarItem" title="ANOTHER ITEM" id="hiC-BK-N02"/>
+                    <navigationItem key="navigationItem" id="V7c-Eh-oZV"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="cEw-0X-zh4" id="qG9-Oh-NpG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="959.5419847328244" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1166" y="1113"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="YIz-lF-8do">
@@ -79,12 +81,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf6-JF-ugA">
-                                <rect key="frame" x="311" y="712" width="57" height="35"/>
+                                <rect key="frame" x="311" y="712" width="57" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Skip"/>
                                 <connections>
                                     <action selector="skipLoginButton:" destination="rdV-7y-RUB" eventType="touchUpInside" id="51G-Tl-1jc"/>
+                                    <segue destination="L3d-F8-Pcj" kind="show" identifier="skipToMap" id="k2p-rm-Npt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAWK'r" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-mM-mx4">
@@ -121,12 +124,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj8-h7-7yY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-37.404580152671755" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="889.3129770992366" y="3.5211267605633805"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--shitty iteem-->
         <scene sceneID="VgB-br-LzJ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zjh-t0-4hS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="shitty iteem" id="yr9-gF-TBl"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9iA-n3-sdd">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -139,7 +143,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8F-DD-9m1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-964.12213740458014" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-28" y="4"/>
         </scene>
         <!--User Registration View Controller-->
         <scene sceneID="gcS-2H-6Sh">
@@ -186,13 +190,13 @@
                                 <rect key="frame" x="155" y="297" width="127" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHT-Ze-kKX">
                                 <rect key="frame" x="155" y="383" width="127" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many dogs do you have?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhK-XR-pkb">
                                 <rect key="frame" x="83" y="485" width="227" height="62"/>
@@ -202,7 +206,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMF-t8-QbV">
-                                <rect key="frame" x="-3" y="555" width="392" height="162"/>
+                                <rect key="frame" x="-8" y="555" width="394" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnB-Ev-cjB">
@@ -211,7 +215,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Tell us about the good boy or girl"/>
                                 <connections>
-                                    <segue destination="Onl-pg-sze" kind="show" identifier="goToDogForm" id="X9k-0m-d1e"/>
+                                    <action selector="registerAccount:" destination="pXQ-mV-vw5" eventType="touchUpInside" id="j60-Fd-ccQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -234,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2F-i5-8c8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="849.61832061068696" y="-838.0281690140846"/>
+            <point key="canvasLocation" x="1752" y="-285"/>
         </scene>
         <!--Choose your dogs Breed-->
         <scene sceneID="pUo-fM-sjv">
@@ -279,6 +283,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                <connections>
+                                    <action selector="confirmSelectionandDismiss:" destination="EpD-O1-BNI" eventType="touchUpInside" id="62G-6E-HW9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MZw-xY-4QG"/>
@@ -296,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXf-Mg-xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3264.8854961832058" y="-1049.2957746478874"/>
+            <point key="canvasLocation" x="3686" y="-294"/>
         </scene>
         <!--Dog Form View Controller-->
         <scene sceneID="Sbm-bc-RqU">
@@ -379,6 +386,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Register!"/>
                                 <connections>
                                     <action selector="registerAccountAndDogs:" destination="Onl-pg-sze" eventType="touchUpInside" id="T1Y-op-jIo"/>
+                                    <segue destination="L3d-F8-Pcj" kind="custom" identifier="goToMapVC" id="fuy-Os-fBh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add doggo image here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ1-AS-5Pw">
@@ -389,7 +397,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-1v-Wqw">
-                                <rect key="frame" x="193" y="441" width="121" height="35"/>
+                                <rect key="frame" x="187" y="454" width="121" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
@@ -397,23 +405,71 @@
                                     <segue destination="EpD-O1-BNI" kind="presentation" id="CJW-Vb-aVp"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="placeholder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41d-mW-qFb">
+                                <rect key="frame" x="187" y="425" width="129" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7HT-0d-msR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="fZr-8g-TOP"/>
                     <connections>
-                        <outlet property="dogAge" destination="VbF-A6-cwd" id="C7N-Xz-5tl"/>
+                        <outlet property="dogAgeTextField" destination="VbF-A6-cwd" id="0TE-kX-zVH"/>
+                        <outlet property="dogBreedChoiceLabel" destination="41d-mW-qFb" id="VPx-oC-dIA"/>
                         <outlet property="dogGender" destination="dto-9Y-kbs" id="F9l-3c-CaA"/>
-                        <outlet property="dogNameTextField" destination="D8G-jd-WnS" id="sZn-0c-599"/>
-                        <outlet property="dogWeight" destination="Ok1-OI-lpV" id="Hyv-7b-C37"/>
+                        <outlet property="dogNameTextField" destination="D8G-jd-WnS" id="9W2-ib-tJf"/>
+                        <outlet property="dogWeightTextLabel" destination="Ok1-OI-lpV" id="ItQ-gF-AFW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPB-sT-rd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1849.6183206106869" y="-838.0281690140846"/>
+            <point key="canvasLocation" x="2738" y="-294"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="WNo-34-pAb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="L3d-F8-Pcj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Iaz-Rj-aJi"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="h4r-aw-3X1"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lX3-D8-YVP">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Rfm-5Z-irg"/>
+                        <segue destination="Sf6-XD-Pg3" kind="relationship" relationship="viewControllers" id="Xd9-9M-bEM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GbA-BI-Zdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077" y="395"/>
+        </scene>
+        <!--Account-->
+        <scene sceneID="W5w-05-1LM">
+            <objects>
+                <viewController id="Sf6-XD-Pg3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zTx-Vd-HTR">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IEJ-Tv-U0q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" id="6vx-EM-Ynd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ln7-sj-mLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2920" y="1113"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="fuy-Os-fBh"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="125"/>
         <systemColor name="systemBackgroundColor">

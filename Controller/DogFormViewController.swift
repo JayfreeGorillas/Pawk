@@ -10,7 +10,16 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseFirestore
 
-class DogFormViewController: UIViewController {
+class DogFormViewController: UIViewController, ModalViewControllerDelegate {
+    var ref: DatabaseReference!
+    
+    func passValue(value: String) {
+        print(value)
+        dogBreedChoiceLabel.text = value
+    }
+    
+   
+    //@IBOutlet var dogNameTextField: UITextField!
     var username: String = ""
     var email: String = ""
     var password: String = ""
@@ -19,33 +28,110 @@ class DogFormViewController: UIViewController {
 // MARK: connect dog entries
     @IBOutlet var dogGender: UISegmentedControl!
     
+   
+    @IBOutlet var dogWeightTextLabel: UITextField!
+    @IBOutlet var dogAgeTextField: UITextField!
+    @IBOutlet var dogBreedChoiceLabel: UILabel!
     @IBAction func showDogBreedList(_ sender: Any) {
+        
         performSegue(withIdentifier: "dogBreedList", sender: sender)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goToMapVC" {
+            let vc = segue.destination as? ViewController
+        } else {
+            guard let dogBreedVC = segue.destination as? DogBreedChoiceViewController else { return }
+            dogBreedVC.delegate = self
+        }
+       
+    }
     // @IBOutlet var dogBreedSelectionButton: UIButton!// TODO: change to action
-    @IBOutlet var dogWeight: UITextField!
+   // @IBOutlet var dogWeight: UITextField!
     @IBOutlet var dogAge: UITextField!
     @IBOutlet var dogNameTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(username,email,password,numOfUsersDogs)
-        printStuffAfterStuff()
+        ref = Database.database().reference()
+
+       // print(username,email,password,numOfUsersDogs)
+      //  printStuffAfterStuff()
 
     }
     @IBAction func registerAccountAndDogs(_ sender: Any) {
+        //TODO:  setup creation of account
+        print(dogBreed)
+        print(dogBreedChoiceLabel.text)
+        //var selection = dogGender.selectedSegmentIndex
+        let choice = genderChoice()
+        let dog = createUsersDogs()
+        // TODO: ADD ERROR HANDLING - ints only for age and weight
+        print(dog)
+        print(choice)
+        let user = User(username: username, email: email, icon: nil, dog: dog)
+//        print(user.username,user.email,user.dog[0].dogName)
+        let nsarray = NSArray(array: user.dog)
+        
+        self.ref.child("Users").child(username).setValue(username)
+        self.ref.child("Users").child(username).child("dogs").setValue([
+            "dogName": user.dog[0].dogName,
+            "dogAge": user.dog[0].dogAge,
+            "dogGender": user.dog[0].dogGender,
+            "dogBreed": user.dog[0].dogBreed,
+            "dogWeight": user.dog[0].weight
+        ])
+//        self.ref.child("Users").child(username).setValue([
+//
+//        ])
+        performSegue(withIdentifier: "goToMapVC", sender: sender)
+//        if let dogMapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
+//            self.navigationController?.pushViewController(dogMapVC, animated: true)
+//        }
         
     }
+    func genderChoice() -> String {
+        let selection = dogGender.selectedSegmentIndex
+        if selection == 0 {
+            return "Male"
+        } else {
+            return "Female"
+        }
+    }
     
-    
-    func printStuffAfterStuff() {
-        print(username,email,password,numOfUsersDogs)
+    func registerAccount() {
+       // let user = User
+        print(username,email,password,numOfUsersDogs,dogBreed,dogAge.text,dogNameTextField.text,dogAgeTextField.text )
+    }
+  
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        if identifier == "goToMapVC" {
+            performSegue(withIdentifier: identifier, sender: sender)
+        } else if identifier == "dogBreedList"{
+            performSegue(withIdentifier: identifier, sender: sender)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(dogBreed)
+        tabBarController?.tabBar.isHidden = true
     }
+    func createUsersDogs() -> [Dog]  {
+        var dogs = [Dog]()
+        if let dogName = dogNameTextField.text,
+            let dogAge = dogAgeTextField.text,
+            let dogWeight = dogWeightTextLabel.text,
+            let dogBreedChoice = dogBreedChoiceLabel.text,
+            let doggyWeight = Int(dogWeight),
+            let doggyAge = Int(dogAge) {
+                let userDogs = Dog(dogGender: genderChoice(), dogName: dogName, dogAge: doggyAge, dogBreed: dogBreedChoice, weight: doggyWeight, dateOfBirth: nil)
+                    dogs.append(userDogs)
+        }
+        print(dogs)
+        return dogs
+    }
+    
+    
 //TODO:  Come up with a method to create a user out of this information as well as their dogs information to be uploaded onto firebase
     
 // MARK: Method to add a selected photo UIIMAGEPICKERSOMETHING
@@ -92,3 +178,4 @@ class DogFormViewController: UIViewController {
     */
 
 }
+
