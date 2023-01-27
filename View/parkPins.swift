@@ -12,11 +12,13 @@ import Contacts
 class Park: NSObject, MKAnnotation {
     let title: String?
     let borough: String?
+    var dogArea: String?
     var coordinate: CLLocationCoordinate2D
     
-    init(title: String?, borough: String?, coordinate: CLLocationCoordinate2D) {
+    init(title: String?, borough: String?,dogArea: String?, coordinate: CLLocationCoordinate2D) {
         self.title = title
         self.borough = borough
+        self.dogArea = dogArea
         self.coordinate = coordinate
         
         super.init()

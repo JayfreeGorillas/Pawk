@@ -55,6 +55,7 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
+        
 
        // print(username,email,password,numOfUsersDogs)
       //  printStuffAfterStuff()
@@ -73,8 +74,8 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
         let user = User(username: username, email: email, icon: nil, dog: dog)
 //        print(user.username,user.email,user.dog[0].dogName)
         let nsarray = NSArray(array: user.dog)
-        
-        self.ref.child("Users").child(username).setValue(username)
+        // TODO
+        self.ref.child("Users").child(username).child("email").setValue(email)
         self.ref.child("Users").child(username).child("dogs").setValue([
             "dogName": user.dog[0].dogName,
             "dogAge": user.dog[0].dogAge,
@@ -85,7 +86,6 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
 //        self.ref.child("Users").child(username).setValue([
 //
 //        ])
-        performSegue(withIdentifier: "goToMapVC", sender: sender)
 //        if let dogMapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
 //            self.navigationController?.pushViewController(dogMapVC, animated: true)
 //        }
@@ -105,13 +105,7 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
         print(username,email,password,numOfUsersDogs,dogBreed,dogAge.text,dogNameTextField.text,dogAgeTextField.text )
     }
   
-    override func performSegue(withIdentifier identifier: String, sender: Any?) {
-        if identifier == "goToMapVC" {
-            performSegue(withIdentifier: identifier, sender: sender)
-        } else if identifier == "dogBreedList"{
-            performSegue(withIdentifier: identifier, sender: sender)
-        }
-    }
+   
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true

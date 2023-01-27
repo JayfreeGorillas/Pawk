@@ -32,7 +32,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
             print(authResult)
-            guard authResult != nil else {
+           guard authResult != nil else {
                 let alertController = UIAlertController(title:"Something Went Wrong" , message: error?.localizedDescription, preferredStyle: .alert)
                 let doneAction = UIAlertAction(title: "Ok", style: .default)
                 alertController.addAction(doneAction)
@@ -40,11 +40,29 @@ class LoginViewController: UIViewController {
                 return
             }
             if let dogMapVC = self?.storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
+                dogMapVC.user = authResult?.user
                 self?.navigationController?.pushViewController(dogMapVC, animated: true)
             }
             //print(email, password)
             
             print(authResult?.user.email)
+            //TODO: GRAB THIS DATA TO PASS ON
+            if let user = authResult?.user {
+              // The user's ID, unique to the Firebase project.
+              // Do NOT use this value to authenticate with your backend server,
+              // if you have one. Use getTokenWithCompletion:completion: instead.
+              let uid = user.uid
+              let email = user.email
+              let photoURL = user.photoURL
+              var multiFactorString = "MultiFactor: "
+              for info in user.multiFactor.enrolledFactors {
+                multiFactorString += info.displayName ?? "[DispayName]"
+                multiFactorString += " "
+                print(multiFactorString)
+              }
+                print(user.email, user.displayName)
+              // ...
+            }
         }
     
         
@@ -56,7 +74,7 @@ class LoginViewController: UIViewController {
     }
     @IBAction func skipLoginButton(_ sender: Any) {
         
-        performSegue(withIdentifier: "skipToMap", sender: sender)
+        //performSegue(withIdentifier: "skipToMap", sender: sender)
 //        if let mapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
 //            self.navigationController?.pushViewController(mapVC, animated: true)
 //        }

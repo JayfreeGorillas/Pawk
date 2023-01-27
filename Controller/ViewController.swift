@@ -1,31 +1,59 @@
-//
-//  ViewController.swift
-//  Pawk
-//
-//  Created by Josfry Barillas on 12/17/22.
-//
+protocol PassUserDelegate {
+    func passUser(user: User)
+}
 
 import UIKit
 import MapKit
+import CoreLocation
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseFirestore
 
 enum FetchError: Error {
     case statusCode(Int)
     case urlResponse
 }
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    var ref: DatabaseReference!
+    let locationManager = CLLocationManager()
+
   
     @IBOutlet var mapView: MKMapView!
     let initialLocation = CLLocation(latitude: 40.730610, longitude: -73.935242)
     
     var dogParkList = [Properties]()
+    let status = CLLocationManager.authorizationStatus()
+ 
     
-    
+    var user: FirebaseAuth.User?
     var parkCoordinates = [Park]()
     
+    @IBAction func printCurrentUser(_ sender: Any) {
+        if user == nil {
+            print("guest")
+        } else {
+            print(user?.email)
+            //user?.displayName = "\(user?.email)"
+            print(user?.displayName)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestLocation()
+        
+        locationManager.startUpdatingLocation()
+        
+        var handle = Auth.auth().addStateDidChangeListener { auth, user in
+            if Auth.auth().currentUser != nil {
+                // user is signed in
+                print(user?.email)
+            } else {
+                print("no one signed in")
+            }
+        }
 //        self.navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
         Task {
@@ -43,12 +71,27 @@ class ViewController: UIViewController {
         
     }
 
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print(locationManager.authorizationStatus)
+    }
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            
+            print(longitude,latitude)
+            printCurrentUser(location.coordinate.latitude)
+            
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error.localizedDescription)
+    }
     func produceOverlay() {
         var multiPoly = [MKPolygon]()
         var points: [CLLocationCoordinate2D] = []
-        //points.append(contentsOf: parkCoordinates)
-//        let polygon = MKMultiPolygon(<#T##polygons: [MKPolygon]##[MKPolygon]#>)
         let polygon = MKPolygon(coordinates: &points, count: points.count)
         multiPoly.append(polygon)
 
@@ -56,20 +99,7 @@ class ViewController: UIViewController {
         mapView.addOverlay(multi)
     }
 
-//    func getMKPolys() -> [MKPolygon] {
-//        var polyList = [MKPolygon]()
-//        for item in dogParkList.enumerated() {
-//            let coordinates = item.element.coordinates()
-//            let polyItem = MKPolygon(coordinates: coordinates, count: coordinates.count)
-//            polyList.append(polyItem)
-//        }
-//        parkCoordinates = polyList
-//        return parkCoordinates
-//    }
-//    func makeMultiPoly() {
-//        var multi = MKMultiPolygon(parkCoordinates)
-//        mapView.addOverlay(multi)
-//    }
+    // to fetch data I take advantage of async await
     func fetchDogData(for data: [Properties]) async throws {
         guard let url = URL(string: "https://data.cityofnewyork.us/resource/hxx3-bwgv.json") else {
             fatalError()
@@ -81,34 +111,31 @@ class ViewController: UIViewController {
         guard(200..<300).contains(httpResponse.statusCode) else {
             throw FetchError.statusCode(httpResponse.statusCode)
         }
-        //let responderrr = httpResponse.statusCode
+
         let decoder = JSONDecoder()
-        //let str = String(data: data, encoding: .utf8)
-       // print(str)
         do {
             dogParkList = try decoder.decode([Properties].self, from: data)
         } catch {
             print(error.localizedDescription)
         }
-//        for propertry in dogParkList {
-//            propertry.coordinates()
-//        }
-        
+
+        // grabs the first coordinate pair for each park in the list so they can later become markers
         for property in dogParkList {
-           //print(property.coordinates().first)
             guard let firstCoordinate = property.coordinates().first else  { return }
-           // print(firstCoordinate.latitude, firstCoordinate.longitude)
-            
-            let park = Park(title: property.name, borough: property.borough, coordinate: firstCoordinate)
+            let park = Park(title: property.name, borough: property.borough, dogArea: property.dog_area_t, coordinate: firstCoordinate)
             parkCoordinates.append(park)
-            
-            //parkCoordinates.append(firstCoordinate)
         }
         
+        let possibleParks = [Park]()
         
-// here I am able to access my properties
-        //print(parkCoordinates)
-//
+        for park in parkCoordinates {
+            //print(park.dogArea)
+            if park.dogArea != "Dog Run" {
+                print(park.dogArea)
+            } else {
+                print(park.dogArea)
+            }
+        }
         mapView.addAnnotations(parkCoordinates)
 
     }

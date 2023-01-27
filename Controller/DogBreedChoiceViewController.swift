@@ -24,19 +24,7 @@ class DogBreedChoiceViewController: UIViewController, UISearchResultsUpdating, U
         
         self.delegate?.passValue(value: selection)
         self.dismiss(animated: true)
-//        if let destinationVC = storyboard?.instantiateViewController(withIdentifier: "dogFormSB") as? DogFormViewController {
-//            destinationVC.dogBreed = selection
-//            
-//            dismiss(animated: true)
-//        }
-        /*
-         if let weaponDetailVC = storyboard?.instantiateViewController(withIdentifier: "weaponDetailVC") as? WeaponDetailVC {
-             weaponDetailVC.weaponData = weaponList[indexPath.row].skins
-             weaponDetailVC.headerTitle = weaponList[indexPath.row].displayName
-             self.navigationController?.pushViewController(weaponDetailVC, animated: true)
-         }
 
-         */
     }
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {

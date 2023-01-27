@@ -19,6 +19,7 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
     }
     // registers the users account on firebase while catching any entry errors/mistakes and passing to ->  dogFormVC
     @IBAction func registerAccount(_ sender: Any) {
+        //TODO: Fix segue to map after registration
         //create a user
         //handle errors in textFields/selections
         guard let email = emailTextField.text else { return }
@@ -29,9 +30,9 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             print(authResult, error?.localizedDescription)
-                   
             
-         
+                   
+            print(user)
             
             guard authResult != nil else {
                 let alertController = UIAlertController(title:"Something Went Wrong" , message: error?.localizedDescription, preferredStyle: .alert)
@@ -40,6 +41,7 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
                 self.present(alertController, animated: true)
                 return
             }
+           // self.performSegue(withIdentifier: "registrstionToMap", sender: sender)
             if let dogFormVC = self.storyboard?.instantiateViewController(withIdentifier: "dogFormSB") as? DogFormViewController {
                 dogFormVC.email = email
                 dogFormVC.username = username
@@ -52,7 +54,9 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
        
     }
 
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("before segure")
+    }
     func passData() {
 //        guard let email = emailTextField.text else { return }
 //        guard let username = usernameTextField.text else { return }

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ANOTHER ITEM-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="mapVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Pawk" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,20 +19,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEw-0X-zh4">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="533"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esx-fa-kBe">
+                                <rect key="frame" x="228" y="222" width="108" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="printCurrentUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ip2-Kz-1hX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cEw-0X-zh4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1s5-WN-fyJ"/>
-                            <constraint firstItem="cEw-0X-zh4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-59" id="epT-JC-20p"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cEw-0X-zh4" secondAttribute="bottom" constant="236" id="rtv-vR-OF8"/>
+                            <constraint firstItem="cEw-0X-zh4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-103" id="epT-JC-20p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cEw-0X-zh4" secondAttribute="bottom" id="rtv-vR-OF8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cEw-0X-zh4" secondAttribute="trailing" id="uBN-I1-qSN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="ANOTHER ITEM" id="hiC-BK-N02"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="hiC-BK-N02"/>
                     <navigationItem key="navigationItem" id="V7c-Eh-oZV"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -41,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="1113"/>
+            <point key="canvasLocation" x="1165.6488549618321" y="1112.6760563380283"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="YIz-lF-8do">
@@ -81,13 +90,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf6-JF-ugA">
-                                <rect key="frame" x="311" y="712" width="57" height="40"/>
+                                <rect key="frame" x="311" y="712" width="57" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Skip"/>
                                 <connections>
                                     <action selector="skipLoginButton:" destination="rdV-7y-RUB" eventType="touchUpInside" id="51G-Tl-1jc"/>
-                                    <segue destination="L3d-F8-Pcj" kind="show" identifier="skipToMap" id="k2p-rm-Npt"/>
+                                    <segue destination="L3d-F8-Pcj" kind="show" id="dQ4-6s-psG"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PAWK'r" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cdv-mM-mx4">
@@ -386,7 +395,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Register!"/>
                                 <connections>
                                     <action selector="registerAccountAndDogs:" destination="Onl-pg-sze" eventType="touchUpInside" id="T1Y-op-jIo"/>
-                                    <segue destination="L3d-F8-Pcj" kind="custom" identifier="goToMapVC" id="fuy-Os-fBh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add doggo image here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ1-AS-5Pw">
@@ -453,7 +461,7 @@
         <!--Account-->
         <scene sceneID="W5w-05-1LM">
             <objects>
-                <viewController id="Sf6-XD-Pg3" sceneMemberID="viewController">
+                <viewController id="Sf6-XD-Pg3" customClass="AccountViewController" customModule="Pawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zTx-Vd-HTR">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -464,12 +472,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ln7-sj-mLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920" y="1113"/>
+            <point key="canvasLocation" x="2958" y="1113"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="fuy-Os-fBh"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="person.fill.badge.plus" catalog="system" width="128" height="125"/>
         <systemColor name="systemBackgroundColor">
