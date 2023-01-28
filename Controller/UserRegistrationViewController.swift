@@ -23,16 +23,16 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
         //create a user
         //handle errors in textFields/selections
         guard let email = emailTextField.text else { return }
-        guard let username = usernameTextField.text else { return }
+       // guard let username = usernameTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        let user = User(username: username, email: email, icon: nil, dog: [])
+        //let user = User(username: username, email: email, icon: nil, dog: [])
         
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             print(authResult, error?.localizedDescription)
             
                    
-            print(user)
+           // print(user)
             
             guard authResult != nil else {
                 let alertController = UIAlertController(title:"Something Went Wrong" , message: error?.localizedDescription, preferredStyle: .alert)
@@ -44,7 +44,7 @@ class UserRegistrationViewController: UIViewController, UIPickerViewDataSource, 
            // self.performSegue(withIdentifier: "registrstionToMap", sender: sender)
             if let dogFormVC = self.storyboard?.instantiateViewController(withIdentifier: "dogFormSB") as? DogFormViewController {
                 dogFormVC.email = email
-                dogFormVC.username = username
+                //dogFormVC.username = username
                 dogFormVC.password = password
                 self.navigationController?.pushViewController(dogFormVC, animated: true)
             }

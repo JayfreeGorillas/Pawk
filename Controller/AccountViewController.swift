@@ -18,33 +18,33 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = Database.database().reference()
-        var refHandle = ref.observe(DataEventType.value) { snapshot in
-            print(snapshot.value)
-            print(snapshot.childrenCount)
-            print(snapshot.ref.child("Users").child("yo").getData(completion: { Error, snapshot in
-                print(snapshot?.value)
-                print(snapshot?.childrenCount)
-            }))
+      
+//            print(snapshot.value)
+//            print(snapshot.childrenCount)
+//            print(snapshot.ref.child("Users").child(user.).getData(completion: { Error, snapshot in
+//                print(snapshot?.value)
+//                print(snapshot?.childrenCount)
+//            }))
         }
-        var printRefOnce = ref.child("Users").getData { error, snapshot in
-            guard error == nil else {
-                print(error?.localizedDescription)
-                return
-            }
-            print(self.ref.child("Users").getData(completion: { error, snapshot in
-                guard error == nil else {
-                    print(error?.localizedDescription)
-                    return
-                }
-            }))
-            let username = snapshot?.value as? String ?? "Unknown"
-            print(username)
-            
-        }
+//        var printRefOnce = ref.child("Users").getData { error, snapshot in
+//            guard error == nil else {
+//                print(error?.localizedDescription)
+//                return
+//            }
+//            print(self.ref.child("Users").getData(completion: { error, snapshot in
+//                guard error == nil else {
+//                    print(error?.localizedDescription)
+//                    return
+//                }
+//            }))
+//            let username = snapshot?.value as? String ?? "Unknown"
+//            print(username)
+//
+//        }
     
 
         // Do any additional setup after loading the view.
-    }
+    
     
 
     /*

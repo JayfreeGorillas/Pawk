@@ -16,10 +16,10 @@ enum FetchError: Error {
 class ViewController: UIViewController, CLLocationManagerDelegate {
     var ref: DatabaseReference!
     let locationManager = CLLocationManager()
-
+    var previousLocation: CLLocation?
+    var initialLocation: CLLocation?
   
     @IBOutlet var mapView: MKMapView!
-    let initialLocation = CLLocation(latitude: 40.730610, longitude: -73.935242)
     
     var dogParkList = [Properties]()
     let status = CLLocationManager.authorizationStatus()
@@ -29,12 +29,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     var parkCoordinates = [Park]()
     
     @IBAction func printCurrentUser(_ sender: Any) {
+        locationManager.requestAlwaysAuthorization()
+        var user = Auth.auth().currentUser
         if user == nil {
             print("guest")
         } else {
             print(user?.email)
+            
+            
+           
             //user?.displayName = "\(user?.email)"
-            print(user?.displayName)
+            print(user?.metadata.self)
         }
     }
     
@@ -50,6 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             if Auth.auth().currentUser != nil {
                 // user is signed in
                 print(user?.email)
+                
             } else {
                 print("no one signed in")
             }
@@ -63,8 +69,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print(error.localizedDescription)
             }
         }
+        
         //loadGeoJson()
-        mapView.centerToLocation(initialLocation)
+        
         //produceOverlay()
         mapView.delegate = self
         mapView.register(ParkMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
@@ -80,10 +87,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
             
+            
+            mapView.centerToLocation(location)
             print(longitude,latitude)
             printCurrentUser(location.coordinate.latitude)
             
         }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -128,14 +138,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         let possibleParks = [Park]()
         
-        for park in parkCoordinates {
-            //print(park.dogArea)
-            if park.dogArea != "Dog Run" {
-                print(park.dogArea)
-            } else {
-                print(park.dogArea)
-            }
-        }
+//        for park in parkCoordinates {
+//            //print(park.dogArea)
+//            if park.dogArea != "Dog Run" {
+//                print(park.dogArea)
+//            } else {
+//                print(park.dogArea)
+//            }
+//        }
         mapView.addAnnotations(parkCoordinates)
 
     }
@@ -145,6 +155,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 extension ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        var handle = Auth.auth().addStateDidChangeListener { auth, user in
+            print(auth.currentUser?.email)
+        }
         navigationController?.setNavigationBarHidden(true, animated: animated)
         tabBarController?.tabBar.isHidden = false
         
@@ -152,7 +165,23 @@ extension ViewController {
 }
 
 extension ViewController: MKMapViewDelegate {
-   
+//mapView gets called for every annotation i add to the map (like tableViewCellForRowAt) to return the view for each annotation
+ // objects to display markers / pictures
+//            // if an annotation could not be dequed it uses the title and property of my artwork to show in the annotation
+
+    func mapView(
+      _ mapView: MKMapView,
+      annotationView view: MKAnnotationView,
+      calloutAccessoryControlTapped control: UIControl
+    ) {
+      guard let park = view.annotation as? Park else {
+        return
+      }
+      let launchOptions = [
+        MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+      ]
+      park.mapItem?.openInMaps(launchOptions: launchOptions)
+    }
 }
 
 private extension MKMapView {

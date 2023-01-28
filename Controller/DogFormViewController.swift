@@ -10,9 +10,57 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseFirestore
 
-class DogFormViewController: UIViewController, ModalViewControllerDelegate {
+class DogFormViewController: UIViewController, ModalViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var ref: DatabaseReference!
     
+    @IBOutlet var imageView: UIImageView!
+    
+    
+    @IBAction func choosePhoto(_ sender: UIButton) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        // presenting an alert controller that lets the user choose whether to choose a photo from their library or take one with the camera
+        alertController.modalPresentationStyle = .popover
+        
+        
+//        alertController.popoverPresentationController?.barButtonItem = sender
+        
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
+                let imagePicker = self.imagePicker(for: .camera)
+                self.present(imagePicker, animated: true, completion: nil)
+            }
+        alertController.addAction(cameraAction)
+        }
+        
+        let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default) { _ in
+            let imagePicker = self.imagePicker(for: .photoLibrary)
+            imagePicker.modalPresentationStyle = .popover
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        alertController.addAction(photoLibraryAction)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+
+    }
+    func imagePicker(for sourceType: UIImagePickerController.SourceType) -> UIImagePickerController {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = sourceType
+        imagePicker.delegate = self
+        return imagePicker
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as! UIImage
+        imageView.image = image
+        
+        dismiss(animated: true,completion: nil)
+    }
+    
+    var dogImageStore: DogImageStore!
     func passValue(value: String) {
         print(value)
         dogBreedChoiceLabel.text = value
@@ -36,18 +84,25 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
         
         performSegue(withIdentifier: "dogBreedList", sender: sender)
     }
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        if identifier == "goToMapVC" {
+            performSegue(withIdentifier: identifier, sender: sender)
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "goToMapVC" {
-            let vc = segue.destination as? ViewController
+            //guard let vc = segue.destination as? ViewController else { return }
+          
+            
+          
         } else {
             guard let dogBreedVC = segue.destination as? DogBreedChoiceViewController else { return }
             dogBreedVC.delegate = self
         }
        
     }
-    // @IBOutlet var dogBreedSelectionButton: UIButton!// TODO: change to action
-   // @IBOutlet var dogWeight: UITextField!
+
     @IBOutlet var dogAge: UITextField!
     @IBOutlet var dogNameTextField: UITextField!
     
@@ -71,25 +126,28 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
         // TODO: ADD ERROR HANDLING - ints only for age and weight
         print(dog)
         print(choice)
-        let user = User(username: username, email: email, icon: nil, dog: dog)
-//        print(user.username,user.email,user.dog[0].dogName)
-        let nsarray = NSArray(array: user.dog)
-        // TODO
-        self.ref.child("Users").child(username).child("email").setValue(email)
-        self.ref.child("Users").child(username).child("dogs").setValue([
-            "dogName": user.dog[0].dogName,
-            "dogAge": user.dog[0].dogAge,
-            "dogGender": user.dog[0].dogGender,
-            "dogBreed": user.dog[0].dogBreed,
-            "dogWeight": user.dog[0].weight
-        ])
-//        self.ref.child("Users").child(username).setValue([
-//
-//        ])
-//        if let dogMapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
-//            self.navigationController?.pushViewController(dogMapVC, animated: true)
-//        }
+        let testUser = Auth.auth().currentUser
+        if let testUser = testUser {
+            let uid = testUser.uid
+            let email = testUser.email
+            let user = User(username: email, email: email, icon: nil, dog: dog)
+            let nsarray = NSArray(array: user.dog)
+            // TODO
+            self.ref.child("Users").child(testUser.uid).child("email").setValue(email)
+            self.ref.child("Users").child(testUser.uid).child("dogs").setValue([
+                "dogName": user.dog[0].dogName,
+                "dogAge": user.dog[0].dogAge,
+                "dogGender": user.dog[0].dogGender,
+                "dogBreed": user.dog[0].dogBreed,
+                "dogWeight": user.dog[0].weight
+            ])
+        }
+        self.performSegue(withIdentifier: "registerToMapVC", sender: sender)
         
+//        print(user.username,user.email,user.dog[0].dogName)
+       
+
+
     }
     func genderChoice() -> String {
         let selection = dogGender.selectedSegmentIndex
@@ -102,10 +160,10 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate {
     
     func registerAccount() {
        // let user = User
-        print(username,email,password,numOfUsersDogs,dogBreed,dogAge.text,dogNameTextField.text,dogAgeTextField.text )
+      //  print(username,email,password,numOfUsersDogs,dogBreed,dogAge.text,dogNameTextField.text,dogAgeTextField.text )
     }
   
-   
+
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true

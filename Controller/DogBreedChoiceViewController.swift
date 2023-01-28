@@ -78,9 +78,9 @@ extension DogBreedChoiceViewController: UITableViewDelegate, UITableViewDataSour
             return false
         }
         
-        print(myNewResuilts)
+       // print(myNewResuilts)
         searchResults = Array(myNewResuilts)
-        print(searchResults)
+      //  print(searchResults)
     }
     
     func updateSearchResults(for searchController: UISearchController) {

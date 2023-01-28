@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="mapVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Pawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" rotateEnabled="NO" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEw-0X-zh4">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="769"/>
+                                <rect key="frame" x="0.0" y="-103" width="393" height="837"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esx-fa-kBe">
@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165.6488549618321" y="1112.6760563380283"/>
+            <point key="canvasLocation" x="1990" y="1113"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="YIz-lF-8do">
@@ -63,12 +63,12 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AMS-SK-jVQ">
                                 <rect key="frame" x="10" y="315" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="txR-Q0-ThV">
                                 <rect key="frame" x="10" y="405" width="373" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlI-5D-OQx">
                                 <rect key="frame" x="164" y="475" width="66" height="35"/>
@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="passwordLabel" destination="txR-Q0-ThV" id="vCr-EP-doL"/>
                         <outlet property="usernameLabel" destination="AMS-SK-jVQ" id="WC1-cR-OEa"/>
+                        <segue destination="L3d-F8-Pcj" kind="show" identifier="loginToMapVC" id="8UF-Lb-d2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vj8-h7-7yY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -168,19 +169,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5F8-MG-1Sk">
-                                <rect key="frame" x="54" y="199" width="93" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pku-qU-dYG">
-                                <rect key="frame" x="155" y="213" width="127" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQo-H1-EgJ">
                                 <rect key="frame" x="54" y="283" width="93" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -199,7 +187,7 @@
                                 <rect key="frame" x="155" y="297" width="127" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHT-Ze-kKX">
                                 <rect key="frame" x="155" y="383" width="127" height="34"/>
@@ -227,12 +215,24 @@
                                     <action selector="registerAccount:" destination="pXQ-mV-vw5" eventType="touchUpInside" id="j60-Fd-ccQ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pawprint.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6R7-Kd-txq">
+                                <rect key="frame" x="76" y="132" width="240" height="128"/>
+                                <color key="tintColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1Zp-BF-onI"/>
+                                    <constraint firstAttribute="height" constant="129.33000000000001" id="7in-8h-cxz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Y15-I1-VNx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="glP-W9-Y1l" firstAttribute="leading" secondItem="Y15-I1-VNx" secondAttribute="leading" constant="163" id="7sX-aD-lQN"/>
+                            <constraint firstItem="6R7-Kd-txq" firstAttribute="centerX" secondItem="Pgx-Yk-3Yr" secondAttribute="centerX" id="8sa-K7-YdR"/>
+                            <constraint firstItem="6R7-Kd-txq" firstAttribute="top" secondItem="glP-W9-Y1l" secondAttribute="bottom" constant="7.6699999999999999" id="9i6-L3-W99"/>
+                            <constraint firstItem="6R7-Kd-txq" firstAttribute="leading" secondItem="Y15-I1-VNx" secondAttribute="leading" constant="76" id="LSA-Ya-aXY"/>
                             <constraint firstItem="glP-W9-Y1l" firstAttribute="top" secondItem="Y15-I1-VNx" secondAttribute="top" id="Lmz-ML-CSv"/>
+                            <constraint firstItem="Y15-I1-VNx" firstAttribute="trailing" secondItem="6R7-Kd-txq" secondAttribute="trailing" constant="77" id="NhQ-Ko-vC4"/>
                             <constraint firstItem="glP-W9-Y1l" firstAttribute="centerX" secondItem="Pgx-Yk-3Yr" secondAttribute="centerX" id="dDr-12-iAV"/>
                         </constraints>
                     </view>
@@ -241,13 +241,11 @@
                         <outlet property="emailTextField" destination="ZCN-Id-0Zi" id="Ice-Ro-RTu"/>
                         <outlet property="numberOfDogs" destination="xMF-t8-QbV" id="dri-nH-Wyv"/>
                         <outlet property="passwordTextField" destination="pHT-Ze-kKX" id="ksv-GF-Pq1"/>
-                        <outlet property="usernameLabel" destination="5F8-MG-1Sk" id="9rb-1X-rgV"/>
-                        <outlet property="usernameTextField" destination="Pku-qU-dYG" id="OcI-3E-xa7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2F-i5-8c8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752" y="-285"/>
+            <point key="canvasLocation" x="2070.9923664122139" y="-294.36619718309862"/>
         </scene>
         <!--Choose your dogs Breed-->
         <scene sceneID="pUo-fM-sjv">
@@ -312,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXf-Mg-xsd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3686" y="-294"/>
+            <point key="canvasLocation" x="4033" y="-294"/>
         </scene>
         <!--Dog Form View Controller-->
         <scene sceneID="Sbm-bc-RqU">
@@ -325,7 +323,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4J-AI-rMu">
                                 <rect key="frame" x="76" y="136" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <imageReference key="image" image="person.fill.badge.plus" catalog="system" symbolScale="small"/>
+                                <color key="tintColor" red="0.1085905954" green="0.1082673594" blue="0.1193451509" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <imageReference key="image" image="pawprint" catalog="system" symbolScale="small"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZv-Sn-mv3">
                                 <rect key="frame" x="65" y="357" width="93" height="62"/>
@@ -366,7 +365,7 @@
                                 <rect key="frame" x="166" y="371" width="150" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dto-9Y-kbs">
                                 <rect key="frame" x="187" y="513" width="127" height="32"/>
@@ -395,15 +394,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Register!"/>
                                 <connections>
                                     <action selector="registerAccountAndDogs:" destination="Onl-pg-sze" eventType="touchUpInside" id="T1Y-op-jIo"/>
+                                    <segue destination="L3d-F8-Pcj" kind="show" identifier="registerToMapVC" id="l3o-OU-Pjg"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add doggo image here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GQ1-AS-5Pw">
-                                <rect key="frame" x="110" y="272" width="173" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kW-1v-Wqw">
                                 <rect key="frame" x="187" y="454" width="121" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -420,6 +413,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TI1-L6-3QW">
+                                <rect key="frame" x="98" y="274" width="197" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add doggo image here"/>
+                                <connections>
+                                    <action selector="choosePhoto:" destination="Onl-pg-sze" eventType="touchUpInside" id="p5H-Dd-k5d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7HT-0d-msR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -431,11 +433,12 @@
                         <outlet property="dogGender" destination="dto-9Y-kbs" id="F9l-3c-CaA"/>
                         <outlet property="dogNameTextField" destination="D8G-jd-WnS" id="9W2-ib-tJf"/>
                         <outlet property="dogWeightTextLabel" destination="Ok1-OI-lpV" id="ItQ-gF-AFW"/>
+                        <outlet property="imageView" destination="b4J-AI-rMu" id="hzv-FI-9Za"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPB-sT-rd1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2738" y="-294"/>
+            <point key="canvasLocation" x="2956" y="-294"/>
         </scene>
         <!--Item-->
         <scene sceneID="WNo-34-pAb">
@@ -456,14 +459,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbA-BI-Zdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077" y="395"/>
+            <point key="canvasLocation" x="2912" y="370"/>
         </scene>
         <!--Account-->
         <scene sceneID="W5w-05-1LM">
             <objects>
                 <viewController id="Sf6-XD-Pg3" customClass="AccountViewController" customModule="Pawk" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zTx-Vd-HTR">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="IEJ-Tv-U0q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -472,13 +475,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ln7-sj-mLp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2958" y="1113"/>
+            <point key="canvasLocation" x="4034" y="1113"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="l3o-OU-Pjg"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="person.fill.badge.plus" catalog="system" width="128" height="125"/>
+        <image name="pawprint" catalog="system" width="128" height="114"/>
+        <image name="pawprint.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

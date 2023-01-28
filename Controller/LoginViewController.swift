@@ -26,8 +26,8 @@ class LoginViewController: UIViewController {
         guard let email = usernameLabel.text else { return }
         guard let password = passwordLabel.text else { return }
         
-        guard !email.isEmpty else { return }
-        guard password.count > 6 else { return }
+        guard !email.isEmpty else { print("bad email"); return } // handle errors
+        guard password.count > 6 else { print("bad password"); return } // handle errors
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
           guard let strongSelf = self else { return }
@@ -39,12 +39,8 @@ class LoginViewController: UIViewController {
                 self!.present(alertController, animated: true)
                 return
             }
-            if let dogMapVC = self?.storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
-                dogMapVC.user = authResult?.user
-                self?.navigationController?.pushViewController(dogMapVC, animated: true)
-            }
-            //print(email, password)
-            
+            self?.performSegue(withIdentifier: "loginToMapVC", sender: sender)
+
             print(authResult?.user.email)
             //TODO: GRAB THIS DATA TO PASS ON
             if let user = authResult?.user {
@@ -97,8 +93,13 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     override func viewWillAppear(_ animated: Bool) {
+        var handle = Auth.auth().addStateDidChangeListener { auth, user in
+            print(auth.currentUser?.email)
+//            if auth.currentUser != nil {
+//                self.performSegue(withIdentifier: "loginToMapVC", sender: Any?.self)
+//            }
+        }
         navigationController?.navigationBar.setNeedsLayout()
-
     }
 }
 

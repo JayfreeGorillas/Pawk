@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FE0C2E3B298071D30066E4D3 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0C2E3A298071D30066E4D3 /* AccountViewController.swift */; };
+		FE0C2E3D29847FFF0066E4D3 /* DogImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0C2E3C29847FFF0066E4D3 /* DogImageStore.swift */; };
 		FE13C1BA295A8139006F34DB /* parkPins.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13C1B9295A8139006F34DB /* parkPins.swift */; };
 		FE13C1BC295A8722006F34DB /* ParkMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE13C1BB295A8722006F34DB /* ParkMarkerView.swift */; };
 		FE60557B296DE2D9006B08A0 /* DogBreedList.txt in Resources */ = {isa = PBXBuildFile; fileRef = FE60557A296DE2D9006B08A0 /* DogBreedList.txt */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		FE0C2E3A298071D30066E4D3 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		FE0C2E3C29847FFF0066E4D3 /* DogImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageStore.swift; sourceTree = "<group>"; };
 		FE13C1B9295A8139006F34DB /* parkPins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkPins.swift; sourceTree = "<group>"; };
 		FE13C1BB295A8722006F34DB /* ParkMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkMarkerView.swift; sourceTree = "<group>"; };
 		FE60557A296DE2D9006B08A0 /* DogBreedList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DogBreedList.txt; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				FEDAC7DE294DCD9300968173 /* ViewController.swift */,
 				FEFAC826296763D8008596B1 /* LoginViewController.swift */,
 				FEF9870E296AFF5600E4BA56 /* UserRegistrationViewController.swift */,
+				FE0C2E3C29847FFF0066E4D3 /* DogImageStore.swift */,
 				FEF98710296B101800E4BA56 /* DogFormViewController.swift */,
 				FE0C2E3A298071D30066E4D3 /* AccountViewController.swift */,
 				FEF98712296CAF0300E4BA56 /* DogBreedChoiceViewController.swift */,
@@ -358,6 +361,7 @@
 				FE13C1BA295A8139006F34DB /* parkPins.swift in Sources */,
 				FE13C1BC295A8722006F34DB /* ParkMarkerView.swift in Sources */,
 				FEDAC7DF294DCD9300968173 /* ViewController.swift in Sources */,
+				FE0C2E3D29847FFF0066E4D3 /* DogImageStore.swift in Sources */,
 				FEFAC827296763D8008596B1 /* LoginViewController.swift in Sources */,
 				FEFAC82929677346008596B1 /* User.swift in Sources */,
 				FEDAC7DB294DCD9300968173 /* AppDelegate.swift in Sources */,
