@@ -16,7 +16,8 @@ class ParkMarkerView: MKMarkerAnnotationView {
             }
             canShowCallout = true
             calloutOffset = CGPoint(x: -5, y: 5)
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            //rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            detailCalloutAccessoryView = UIButton(type: .system)
             markerTintColor = .systemMint
             
             if let letter = park.title {
@@ -24,5 +25,5 @@ class ParkMarkerView: MKMarkerAnnotationView {
             }
         }
     }
-    // MARK: HERE IS ARTWORK STUFF IM WORKING ON
+    // MARK: HERE IS ARTWORK STUFF IM WORKING ON add button to check in with current user
 }

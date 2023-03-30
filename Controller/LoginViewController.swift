@@ -69,32 +69,23 @@ class LoginViewController: UIViewController {
 
     }
     @IBAction func skipLoginButton(_ sender: Any) {
-        
-        //performSegue(withIdentifier: "skipToMap", sender: sender)
-//        if let mapVC = storyboard?.instantiateViewController(withIdentifier: "mapVC") as? ViewController {
-//            self.navigationController?.pushViewController(mapVC, animated: true)
-//        }
+
            }
     override func viewDidLoad() {
         super.viewDidLoad()
          ref = Database.database().reference()
         testList.append(testDog)
         // Do any additional setup after loading the view.
-        //var user = User(username: "yaboi", icon: nil, dog: testList)
     }
     
-    func createUser(dogs: [Dog]) -> User {
-//        let user = User(username: "Josfry", icon: nil, dog: dogs)
-        let user = User(username: "Jori", email: "jori@jori.com", icon: nil, dog: dogs)
-        
-        return user
-    }
+
 }
 
 extension LoginViewController {
     override func viewWillAppear(_ animated: Bool) {
         var handle = Auth.auth().addStateDidChangeListener { auth, user in
             print(auth.currentUser?.email)
+            //handle if user is already signed in
 //            if auth.currentUser != nil {
 //                self.performSegue(withIdentifier: "loginToMapVC", sender: Any?.self)
 //            }

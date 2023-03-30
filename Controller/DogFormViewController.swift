@@ -14,6 +14,7 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate, UIIm
     var ref: DatabaseReference!
     
     @IBOutlet var imageView: UIImageView!
+    var storeImage = UIImage()
     
     
     @IBAction func choosePhoto(_ sender: UIButton) {
@@ -56,6 +57,7 @@ class DogFormViewController: UIViewController, ModalViewControllerDelegate, UIIm
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] as! UIImage
         imageView.image = image
+        storeImage = image
         
         dismiss(animated: true,completion: nil)
     }
